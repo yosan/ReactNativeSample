@@ -9,16 +9,26 @@ var {
   View
 } = React;
 var TopMenuItem = require('./top_menu_item');
-var Hello = require('./hello');
+var SingleViewDemo = require('../single_view_demo/single_view_demo');
+var AnimatedDemo = require('../animated_demo/animated_demo');
 
-var MENU_ITEM_TITELS = ["item 1", "item 2", "item 3", "item 4"];
+var MENU_ITEMS = [
+  {
+    title: "Single View Demo",
+    component: SingleViewDemo
+  },
+  {
+    title: "Animated Demo",
+    component: AnimatedDemo
+  }
+];
 
 var TopMenuList = React.createClass({
 
   getInitialState: function() {
     var ds = new ListView.DataSource({rowHasChanged: (row1, row2) => row1 !== row2})
     return {
-      dataSource: ds.cloneWithRows(MENU_ITEM_TITELS)
+      dataSource: ds.cloneWithRows(MENU_ITEMS)
     }
   },
 
@@ -58,7 +68,7 @@ var TopMenuList = React.createClass({
     return (
       <TopMenuItem
         key={'ITEM_' + sectionID + '_' + rowID}
-        title={item}
+        item={item}
         onSelect={() => this.selectItem(item)}
       />
     );
@@ -66,9 +76,9 @@ var TopMenuList = React.createClass({
 
   selectItem: function(item: Object) {
     this.props.navigator.push({
-      title: item,
-      component: Hello,
-      passProps: {title: item},
+      title: item.title,
+      component: item.component,
+      passProps: {title: item.title},
     });
   },
 

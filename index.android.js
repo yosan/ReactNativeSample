@@ -8,7 +8,7 @@ var React = require('react-native');
 var {
   AppRegistry
 } = React;
-var TopMenu = require('./components/top_menu/top_menu');
+var TopMenu = require('./components/app/menu/top_menu');
 
 var ReactNativeSample = React.createClass({
   render: function() {

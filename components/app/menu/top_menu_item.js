@@ -21,7 +21,7 @@ var TopMenuItem = React.createClass({
         <TouchableElement onPress={this.props.onSelect}>
           <View>
             <Text style={styles.container}>
-              {this.props.title}
+              {this.props.item.title}
             </Text>
           </View>
         </TouchableElement>

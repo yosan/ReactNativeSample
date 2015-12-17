@@ -10,7 +10,7 @@ var {
   StyleSheet,
   NavigatorIOS
 } = React;
-var TopMenu = require('./components/top_menu.js');
+var TopMenu = require('./components/top_menu');
 
 var ReactNativeSample = React.createClass({
   render: function() {

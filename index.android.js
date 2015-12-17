@@ -39,6 +39,19 @@ var RouteMapper = function(route, navigationOperations, onComponentRef) {
         <TopMenu navigator={navigationOperations} />
       </View>
     );
+  } else if (route.component !== undefined){
+    var ReceivedComponent = route.component;
+    return (
+      <View style={{flex: 1}}>
+        <ToolbarAndroid
+          actions={[]}
+          onIconClicked={navigationOperations.pop}
+          style={styles.toolbar}
+          titleColor="white"
+          title={route.title} />
+        <ReceivedComponent />
+      </View>
+    );
   }
 };
 
@@ -49,7 +62,7 @@ var ReactNativeSample = React.createClass({
       <Navigator
         style={styles.container}
         initialRoute={initialRoute}
-        configureScene={() => Navigator.SceneConfigs.FadeAndroid}
+        configureScene={() => Navigator.SceneConfigs.PushFromRight}
         renderScene={RouteMapper}
       />
     );

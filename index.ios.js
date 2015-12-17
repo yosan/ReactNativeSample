@@ -6,30 +6,16 @@
 
 var React = require('react-native');
 var {
-  AppRegistry,
-  StyleSheet,
-  NavigatorIOS
+  AppRegistry
 } = React;
+var NavigationBar = require('./components/navigation_bar/navigation_bar');
 var TopMenu = require('./components/top_menu');
 
 var ReactNativeSample = React.createClass({
   render: function() {
     return (
-      <NavigatorIOS
-        style={styles.container}
-        initialRoute={{
-          title: 'TopMenu',
-          component: TopMenu,
-        }}
-      />
+      <NavigationBar rootTitle="TopMenu" rootComponent={TopMenu} />
     );
-  }
-});
-
-var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
   }
 });
 

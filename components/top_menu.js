@@ -8,7 +8,7 @@ var TopMenuList = require('./top_menu_list');
 
 var TopMenu = React.createClass({
   render: function() {
-    return <TopMenuList />
+    return <TopMenuList navigator={this.props.navigator}/>
   }
 });
 

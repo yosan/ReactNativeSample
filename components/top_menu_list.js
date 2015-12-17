@@ -9,6 +9,7 @@ var {
   View
 } = React;
 var TopMenuItem = require('./top_menu_item');
+var Hello = require('./hello');
 
 var MENU_ITEM_TITELS = ["item 1", "item 2", "item 3", "item 4"];
 
@@ -48,11 +49,28 @@ var TopMenuList = React.createClass({
     return <Text style={styles.footer}>Enjoy ReactNative!</Text>
   },
 
-  renderRow: function(item) {
+  renderRow: function(
+    item: Object,
+    sectionID: number | string,
+    rowID: number | string,
+    highlightRowFunc: (sectionID: ?number | string, rowID: ?number | string) => void,
+  ) {
     return (
-      <TopMenuItem title={item} />
+      <TopMenuItem
+        key={'ITEM_' + sectionID + '_' + rowID}
+        title={item}
+        onSelect={() => this.selectItem(item)}
+      />
     );
-  }
+  },
+
+  selectItem: function(item: Object) {
+    this.props.navigator.push({
+      title: item,
+      component: Hello,
+      passProps: {title: item},
+    });
+  },
 
 });
 

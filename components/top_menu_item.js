@@ -2,13 +2,31 @@
 
 var React = require('react-native');
 var {
+  View,
   Text,
+  TouchableNativeFeedback,
+  TouchableHighlight,
+  Platform,
   StyleSheet
 } = React;
 
 var TopMenuItem = React.createClass({
   render: function() {
-    return <Text style={styles.container}>{this.props.title}</Text>
+    var TouchableElement = TouchableHighlight;
+    if (Platform.OS === 'android') {
+      TouchableElement = TouchableNativeFeedback;
+    }
+    return (
+      <View>
+        <TouchableElement onPress={this.props.onSelect}>
+          <View>
+            <Text style={styles.container}>
+              {this.props.title}
+            </Text>
+          </View>
+        </TouchableElement>
+      </View>
+    )
   }
 });
 

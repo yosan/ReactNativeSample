@@ -4,11 +4,16 @@ var React = require('react-native');
 var {
   Text
 } = React;
+var NavigationBar = require('./navigation_bar/navigation_bar');
 var TopMenuList = require('./top_menu_list');
 
 var TopMenu = React.createClass({
   render: function() {
-    return <TopMenuList navigator={this.props.navigator}/>
+    initialRoute={
+      title: "TopMenu",
+      component: TopMenuList
+    }
+    return <NavigationBar initialRoute={initialRoute} />
   }
 });
 

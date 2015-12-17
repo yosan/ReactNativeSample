@@ -12,10 +12,7 @@ var NavigationBar = React.createClass({
     return (
       <NavigatorIOS
         style={styles.container}
-        initialRoute={{
-          title: this.props.rootTitle,
-          component: this.props.rootComponent
-        }}
+        initialRoute={initialRoute}
       />
     );
   }

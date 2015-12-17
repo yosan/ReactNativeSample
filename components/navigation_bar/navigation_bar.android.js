@@ -13,7 +13,6 @@ var {
   ToolbarAndroid,
   View
 } = React;
-var TopMenu = require('./../top_menu');
 
 var _navigator;
 
@@ -27,19 +26,7 @@ BackAndroid.addEventListener('hardwareBackPress', () => {
 
 var RouteMapper = function(route, navigationOperations, onComponentRef) {
   _navigator = navigationOperations;
-  if (route.name === 'top_menu') {
-    return (
-      <View style={{flex: 1}}>
-        <ToolbarAndroid
-          actions={[]}
-          onIconClicked={navigationOperations.pop}
-          style={styles.toolbar}
-          titleColor="white"
-          title="TopMenu" />
-        <TopMenu navigator={navigationOperations} />
-      </View>
-    );
-  } else if (route.component !== undefined){
+  if (route.component !== undefined){
     var ReceivedComponent = route.component;
     return (
       <View style={{flex: 1}}>
@@ -49,7 +36,7 @@ var RouteMapper = function(route, navigationOperations, onComponentRef) {
           style={styles.toolbar}
           titleColor="white"
           title={route.title} />
-        <ReceivedComponent />
+        <ReceivedComponent navigator={navigationOperations} />
       </View>
     );
   }
@@ -57,16 +44,10 @@ var RouteMapper = function(route, navigationOperations, onComponentRef) {
 
 var NavigationBar = React.createClass({
   render: function() {
-    var initialRoute = {
-      title: this.props.rootTitle,
-      component: this.props.rootComponent,
-      name: 'top_menu'
-    };
-
     return (
       <Navigator
         style={styles.container}
-        initialRoute={initialRoute}
+        initialRoute={this.props.initialRoute}
         configureScene={() => Navigator.SceneConfigs.PushFromRight}
         renderScene={RouteMapper}
       />

@@ -10,7 +10,7 @@ var {
   Animated
 } = React;
 
-var AnimatedDemo = React.createClass({
+var SpringAnimationDemo = React.createClass({
 
   getInitialState() {
     return {
@@ -44,4 +44,4 @@ var AnimatedDemo = React.createClass({
   }
 });
 
-module.exports = AnimatedDemo;
+module.exports = SpringAnimationDemo;

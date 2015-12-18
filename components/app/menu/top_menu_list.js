@@ -9,8 +9,8 @@ var {
   View
 } = React;
 var TopMenuItem = require('./top_menu_item');
-var SingleViewDemo = require('../single_view_demo/single_view_demo');
-var AnimatedDemo = require('../animated_demo/animated_demo');
+var SingleViewDemo = require('../demos/single_view_demo');
+var SpringAnimationDemo = require('../demos/spring_animation_demo');
 
 var MENU_ITEMS = [
   {
@@ -18,8 +18,8 @@ var MENU_ITEMS = [
     component: SingleViewDemo
   },
   {
-    title: "Animated Demo",
-    component: AnimatedDemo
+    title: "Spring Animation Demo",
+    component: SpringAnimationDemo
   }
 ];
 

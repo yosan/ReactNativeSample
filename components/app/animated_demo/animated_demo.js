@@ -5,19 +5,20 @@
 
 'user strict';
 
-import React from 'react-native';
+var React = require('react-native');
 var {
   Animated
 } = React;
 
-class AnimatedDemo extends React.Component {
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      bounceValue: new Animated.Value(0),
-    };
-  }
-  render(): ReactElement {
+var AnimatedDemo = React.createClass({
+
+  getInitialState() {
+    return {
+      bounceValue: new Animated.Value(0)
+    }
+  },
+
+  render: function() {
     return (
       <Animated.Image
         source={{uri: 'http://i.imgur.com/XMKOH81.jpg'}}
@@ -29,8 +30,9 @@ class AnimatedDemo extends React.Component {
         }}
       />
     );
-  }
-  componentDidMount() {
+  },
+
+  componentDidMount: function() {
     this.state.bounceValue.setValue(1.5);
     Animated.spring(
       this.state.bounceValue,
@@ -40,6 +42,6 @@ class AnimatedDemo extends React.Component {
       }
     ).start();
   }
-}
+});
 
 module.exports = AnimatedDemo;

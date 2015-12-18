@@ -12,6 +12,7 @@ var TopMenuItem = require('./top_menu_item');
 var SingleViewDemo = require('../demos/single_view_demo');
 var SpringAnimationDemo = require('../demos/spring_animation_demo');
 var MoveAnimationDemo = require('../demos/move_animation_demo');
+var NativeModuleDemo = require('../demos/native/native_module_demo');
 
 var MENU_ITEMS = [
   {
@@ -25,6 +26,10 @@ var MENU_ITEMS = [
   {
     title: "Move Animation Demo",
     component: MoveAnimationDemo
+  },
+  {
+    title: "Native Module Demo",
+    component: NativeModuleDemo
   }
 ];
 
